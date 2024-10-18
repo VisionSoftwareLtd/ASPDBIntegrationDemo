@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASPDBIntegrationDemo", "ASPDBIntegrationDemo.csproj", "{97E6DEAD-D41E-4F65-80D3-7DE7D30061C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97E6DEAD-D41E-4F65-80D3-7DE7D30061C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E6DEAD-D41E-4F65-80D3-7DE7D30061C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E6DEAD-D41E-4F65-80D3-7DE7D30061C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E6DEAD-D41E-4F65-80D3-7DE7D30061C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F117233C-1EE7-417F-9D60-340A2D26E068}
+	EndGlobalSection
+EndGlobal
