@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="MySQL.Data" Version="9.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
 </Project>

@@ -26,11 +26,6 @@ public class HomeController : Controller
     return View();
   }
 
-  public List<Item> Items()
-  {
-    return Database.Instance.GetItems();
-  }
-
   public IActionResult CreateItemResult(Item item)
   {
     Database.Instance.AddItem(item);
