@@ -1,3 +1,4 @@
+using System.Buffers.Text;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -13,10 +14,35 @@ public class ItemApiController : ControllerBase
     _configuration = configuration;
   }
 
+  private bool Authenticate()
+  {
+    string authString = Request.Headers["Authorization"];
+    byte[] data = Convert.FromBase64String(authString.Substring(6));
+    string decodedString = System.Text.Encoding.UTF8.GetString(data);
+    string[] strings = decodedString.Split(":");
+    string username = strings[0];
+    string password = strings[1];
+    if (username == "Bob" && password == "password")
+    {
+      return true;
+    }
+    return false;
+  }
+
+
   [HttpGet]
   [ProducesResponseType(StatusCodes.Status200OK)]
-  public ActionResult<List<Item>> Items()
+  [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+  public ActionResult<List<Item>> GetItems()
   {
+    foreach (string key in Request.Headers.Keys)
+    {
+      Console.WriteLine($"{key} : {Request.Headers[key]}");
+    }
+    if (!Authenticate())
+    {
+      return Unauthorized();
+    }
     List<Item> items = Database.Instance.GetItems();
     return items;
   }
