@@ -65,9 +65,47 @@ public class Database
       MySqlConnection conn = GetOpenConnection();
 
       string sql = "INSERT INTO Item (ItemName) VALUES (@itemName);";
-      Console.WriteLine(sql);
       MySqlCommand command = new MySqlCommand(sql, conn);
       command.Parameters.AddWithValue("@itemName", item.ItemName);
+      command.ExecuteNonQuery();
+
+      conn.Close();
+    }
+    catch (Exception exception)
+    {
+      Console.Error.WriteLine(exception.Message);
+    }
+  }
+
+  public void DeleteItem(Item item)
+  {
+    try
+    {
+      MySqlConnection conn = GetOpenConnection();
+
+      string sql = "DELETE FROM Item WHERE ItemName=@itemName;";
+      MySqlCommand command = new MySqlCommand(sql, conn);
+      command.Parameters.AddWithValue("@itemName", item.ItemName);
+      command.ExecuteNonQuery();
+
+      conn.Close();
+    }
+    catch (Exception exception)
+    {
+      Console.Error.WriteLine(exception.Message);
+    }
+  }
+
+  public void UpdateItem(string nameFrom, string nameTo)
+  {
+    try
+    {
+      MySqlConnection conn = GetOpenConnection();
+
+      string sql = "UPDATE Item SET ItemName=@nameTo WHERE ItemName=@nameFrom;";
+      MySqlCommand command = new MySqlCommand(sql, conn);
+      command.Parameters.AddWithValue("@nameFrom", nameFrom);
+      command.Parameters.AddWithValue("@nameTo", nameTo);
       command.ExecuteNonQuery();
 
       conn.Close();
