@@ -4,9 +4,10 @@ SELECT *
 FROM Item;
 -- @block
 INSERT INTO Item (ItemName)
-VALUES ('Apple'),
-  ('Banana'),
-  ('Cherry');
+VALUES ('Fig');
 -- @block
 DELETE FROM Item
 WHERE ItemName LIKE '@%';
+-- @block
+SELECT *
+FROM Item;
